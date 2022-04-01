@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private float speed = 5;
+    [SerializeField] private float speed = 120;
     public Vector2 MovementDirection => _movementDirection;
     public bool MovementOn => _movementDirection.magnitude > 0f;
 
