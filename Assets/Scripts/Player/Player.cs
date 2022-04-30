@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-   //private PlayerLife _playerLife;
     public PlayerLife PlayerLife { get; private set; }
+    public PlayerMana PlayerMana { get; private set; }
     public PlayerAnimations PlayerAnimations { get; private set; }
-    //public PlayerAnimations _playerAnimations;
+    
+
+    
 
     private void Awake()
     {
@@ -19,6 +21,7 @@ public class Player : MonoBehaviour
     {
         PlayerLife.RevivePlayer();
         PlayerAnimations.RevivePlayer();
+        PlayerMana.RestoreMana();
 
     }
 }

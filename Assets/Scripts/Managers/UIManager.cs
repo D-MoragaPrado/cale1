@@ -3,43 +3,87 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UIManager : MonoBehaviour
+public class UIManager : Singleton<UIManager>
 {
-    public static UIManager Instance;
+    [Header("Stats")]   
+    [SerializeField] private PlayerStats stats;
 
-    [SerializeField] private Image PlayerLife;           //la barrita de color
-    [SerializeField] private TMPro.TextMeshProUGUI lifeTMP;    // el texto 100/100
+    [Header("Panels")]   
+    [SerializeField] private GameObject panelStats;
+
+
+    [Header("Barra")]   //la barrita de color
+    [SerializeField] private Image PlayerLife;           
+    [SerializeField] private Image PlayerMana;
+    [SerializeField] private Image PlayerExp;
+
+    [Header("Text")]   // el texto 100/100
+    [SerializeField] private TMPro.TextMeshProUGUI lifeTMP;    
+    [SerializeField] private TMPro.TextMeshProUGUI manaTMP;
+    [SerializeField] private TMPro.TextMeshProUGUI expTMP;
+
+    [Header("Stats")]
+    [SerializeField] private TMPro.TextMeshProUGUI statDamageTMP;
+    [SerializeField] private TMPro.TextMeshProUGUI statDefenseTMP;
+    [SerializeField] private TMPro.TextMeshProUGUI statCriticTMP;
+    [SerializeField] private TMPro.TextMeshProUGUI statblockTMP;
+    [SerializeField] private TMPro.TextMeshProUGUI statspeedTMP;
+    [SerializeField] private TMPro.TextMeshProUGUI statLevelTMP;
+    [SerializeField] private TMPro.TextMeshProUGUI statActualExpTMP;
+    [SerializeField] private TMPro.TextMeshProUGUI statExpRequiredNextLevelTMP;
 
 
     private float actualHealth;
     private float maxHealth;
 
+    private float actualMana;
+    private float maxMana;
 
-    private void Awake()
-    {
-        Instance = this;
-    }
+    private float actualExp;
+    private float expRequiredNextLevel;
 
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
     {
         UpdateUIPlayer();
+        UpdatePanelStats();
     }
 
     private void UpdateUIPlayer()
     {
         PlayerLife.fillAmount = Mathf.Lerp(PlayerLife.fillAmount, actualHealth / maxHealth, 10f * Time.deltaTime); //barra modificada
-
         lifeTMP.text = $"{actualHealth}/{maxHealth}"; //texto actualizado
+
+        PlayerMana.fillAmount = Mathf.Lerp(PlayerMana.fillAmount, actualMana / maxMana, 10f * Time.deltaTime); //barra modificada
+        manaTMP.text = $"{actualMana}/{maxMana}"; //texto actualizado
+
+        PlayerExp.fillAmount = Mathf.Lerp(PlayerExp.fillAmount, actualExp / expRequiredNextLevel, 10f * Time.deltaTime); //barra modificada
+        expTMP.text = $"{((actualExp / expRequiredNextLevel)*100):F2}%"; //texto con 2 decimales
+
     }
+
+    private void UpdatePanelStats()
+    {
+        if (panelStats.activeSelf == false)
+        {
+            return;
+        }
+
+        statDamageTMP.text = stats.damage.ToString();
+        statDefenseTMP.text = stats.defense.ToString();
+        statCriticTMP.text = $"{stats.percentageCritical}%";
+        statblockTMP.text = $"{stats.percentageBlocking}%";
+        statspeedTMP.text = stats.speed.ToString();
+        statLevelTMP.text = stats.level.ToString();
+        statActualExpTMP.text = stats.actualExp.ToString();
+        statExpRequiredNextLevelTMP.text = stats.expRequiredNextLevel.ToString();
+
+
+    }
+
+
 
 
     public void UpdateLifePlayer(float pActualHealth , float pMaxHealth)
@@ -47,4 +91,18 @@ public class UIManager : MonoBehaviour
         actualHealth = pActualHealth;
         maxHealth = pMaxHealth;
     }
+
+    public void UpdateManaPlayer(float pActualMana, float pMaxMana)
+    {
+        actualMana = pActualMana;
+        maxMana = pMaxMana;
+    }
+
+    public void UpdateExperiencePlayer(float pActualExp, float pRequiredExp)
+    {
+        actualExp = pActualExp;
+        expRequiredNextLevel = pRequiredExp;
+    }
+
+
 }
