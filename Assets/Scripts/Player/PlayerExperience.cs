@@ -13,14 +13,18 @@ public class PlayerExperience : MonoBehaviour
     [SerializeField] private int IncrementalValue;
 
 
+    private float expActual;
     private float expActualTemp;
     private float expRequiredNextLevel;
 
     // Start is called before the first frame update
     void Start()
     {
-        stats.level= 1;
-        expRequiredNextLevel = expBase;
+        //stats.level= 1;
+        //expRequiredNextLevel = expBase;
+        expRequiredNextLevel = stats.expRequiredNextLevel;
+        expActualTemp = stats.actualExpTemp;
+        //stats.expRequiredNextLevel = expRequiredNextLevel;
         UpdateExpBar();
     }
 
@@ -29,7 +33,8 @@ public class PlayerExperience : MonoBehaviour
         if( expGained > 0f)
         {
             float expMissingNextLevel = expRequiredNextLevel - expActualTemp;
-            if( expGained >= expMissingNextLevel)
+            expActual += expGained;
+            if ( expGained >= expMissingNextLevel)
             {
                 expGained -= expMissingNextLevel;
                 UpdateLevel();
@@ -44,6 +49,8 @@ public class PlayerExperience : MonoBehaviour
                 }
             }
         }
+        stats.actualExp = expActual;
+        stats.actualExpTemp = expActualTemp;
         UpdateExpBar();
     }
 
@@ -54,6 +61,8 @@ public class PlayerExperience : MonoBehaviour
             stats.level++;
             expActualTemp = 0f;
             expRequiredNextLevel *= IncrementalValue;
+            stats.expRequiredNextLevel = expRequiredNextLevel;
+            stats.LevelStats();
         }
     }
 
@@ -66,6 +75,9 @@ public class PlayerExperience : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            AddExperience(2f);
+        }
     }
 }

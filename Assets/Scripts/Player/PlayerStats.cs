@@ -13,4 +13,27 @@ public class PlayerStats : ScriptableObject
     public float expRequiredNextLevel;
     [Range(0f,100f)] public float percentageCritical;
     [Range(0f, 100f)] public float percentageBlocking;
+    public float actualExpTemp;
+
+
+    public void ResetValues()
+    {
+        damage = 5f ;
+        defense = 2f;
+        speed = 100f;
+        level = 1;
+        actualExp = 0f;
+        expRequiredNextLevel = 2f;
+        percentageCritical = 0f;
+        percentageBlocking = 0f;
+    }
+
+    public void LevelStats()
+    {
+        damage += 5f;
+        defense += 2f;
+        speed += 5f;
+        percentageCritical += 3f;
+        percentageBlocking += 3f;
+    }
 }

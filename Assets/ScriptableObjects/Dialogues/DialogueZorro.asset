@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9f4050cc3b95254e905ea16c92d93bc, type: 3}
+  m_Name: DialogueZorro
+  m_EditorClassIdentifier: 
+  Name: Zorro
+  Icon: {fileID: 50344537, guid: 418fecc03d5d8454e9aa3759cfb11c1e, type: 3}
+  contExtraInteraction: 0
+  InteractionExtra: 0
+  Saludo: Hola , no pareces de por aqui.
+  Conversacion:
+  - Oracion: "Por mis a\xF1os en esta tierra , no debe haber otra razon por la que
+      andes por aqui mas que estes buscando algo."
+  - Oracion: "\xBFO me equivoco?"
+  - Oracion: Zorro el sabio me dicen.
+  Despedida: "Suerte con tu b\xFAsqueda."

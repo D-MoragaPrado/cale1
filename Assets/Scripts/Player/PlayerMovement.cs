@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private float speed = 120;
+    [Header("Stats")]
+    [SerializeField] private PlayerStats stats;
+
+    [SerializeField] private float speed;
     public Vector2 MovementDirection => _movementDirection;
     public bool MovementOn => _movementDirection.magnitude > 0f;
 
@@ -21,12 +24,13 @@ public class PlayerMovement : MonoBehaviour
     }
     void Start()
     {
-        
+        speed = stats.speed;
     }
 
     // Update is called once per frame
     void Update()
     {
+        speed = stats.speed; // puede llevarse mucho
         _input = new Vector2(x: Input.GetAxisRaw("Horizontal"), y: Input.GetAxisRaw("Vertical"));
 
         //X

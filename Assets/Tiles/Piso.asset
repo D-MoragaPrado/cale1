@@ -9,6 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4820dd3093468ab4ca7eb1ecb52524ac, type: 3}
-  m_Name: PlayerStats
+  m_Script: {fileID: 11500000, guid: 9d1514134bc4fbd41bb739b1b9a49231, type: 3}
+  m_Name: Piso
   m_EditorClassIdentifier: 
+  m_DefaultSprite: {fileID: 726028403, guid: feae46ddc4818aa4e89fa01826b8cda4, type: 3}
+  m_DefaultGameObject: {fileID: 0}
+  m_DefaultColliderType: 1
+  m_TilingRules: []

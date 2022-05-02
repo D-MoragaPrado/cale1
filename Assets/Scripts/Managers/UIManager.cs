@@ -21,13 +21,14 @@ public class UIManager : Singleton<UIManager>
     [SerializeField] private TMPro.TextMeshProUGUI lifeTMP;    
     [SerializeField] private TMPro.TextMeshProUGUI manaTMP;
     [SerializeField] private TMPro.TextMeshProUGUI expTMP;
+    [SerializeField] private TMPro.TextMeshProUGUI levelTMP;
 
     [Header("Stats")]
     [SerializeField] private TMPro.TextMeshProUGUI statDamageTMP;
     [SerializeField] private TMPro.TextMeshProUGUI statDefenseTMP;
     [SerializeField] private TMPro.TextMeshProUGUI statCriticTMP;
-    [SerializeField] private TMPro.TextMeshProUGUI statblockTMP;
-    [SerializeField] private TMPro.TextMeshProUGUI statspeedTMP;
+    [SerializeField] private TMPro.TextMeshProUGUI statBlockTMP;
+    [SerializeField] private TMPro.TextMeshProUGUI statSpeedTMP;
     [SerializeField] private TMPro.TextMeshProUGUI statLevelTMP;
     [SerializeField] private TMPro.TextMeshProUGUI statActualExpTMP;
     [SerializeField] private TMPro.TextMeshProUGUI statExpRequiredNextLevelTMP;
@@ -62,6 +63,8 @@ public class UIManager : Singleton<UIManager>
         PlayerExp.fillAmount = Mathf.Lerp(PlayerExp.fillAmount, actualExp / expRequiredNextLevel, 10f * Time.deltaTime); //barra modificada
         expTMP.text = $"{((actualExp / expRequiredNextLevel)*100):F2}%"; //texto con 2 decimales
 
+        levelTMP.text = $"Nivel {stats.level}";
+
     }
 
     private void UpdatePanelStats()
@@ -74,10 +77,10 @@ public class UIManager : Singleton<UIManager>
         statDamageTMP.text = stats.damage.ToString();
         statDefenseTMP.text = stats.defense.ToString();
         statCriticTMP.text = $"{stats.percentageCritical}%";
-        statblockTMP.text = $"{stats.percentageBlocking}%";
-        statspeedTMP.text = stats.speed.ToString();
+        statBlockTMP.text = $"{stats.percentageBlocking}%";
+        statSpeedTMP.text = stats.speed.ToString();
         statLevelTMP.text = stats.level.ToString();
-        statActualExpTMP.text = stats.actualExp.ToString();
+        statActualExpTMP.text = stats.actualExpTemp.ToString();
         statExpRequiredNextLevelTMP.text = stats.expRequiredNextLevel.ToString();
 
 
@@ -104,5 +107,5 @@ public class UIManager : Singleton<UIManager>
         expRequiredNextLevel = pRequiredExp;
     }
 
-
+    
 }
