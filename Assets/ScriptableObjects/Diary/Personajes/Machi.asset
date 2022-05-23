@@ -15,7 +15,7 @@ MonoBehaviour:
   Id: machi
   Nombre: Machi
   tipo: Cargo
-  Icono: {fileID: 0}
+  Icono: {fileID: 21300000, guid: 18c5a8ead17fb5a44b3d2a66cecf8ac6, type: 3}
   Descripcion: "Las machi son las intermediarias entre el mundo mapuche y el mundo
     sobrenatural y sus esp\xEDritus protectores les entregan poderes para combatir
     a los esp\xEDritus malignos. Velan por el bienestar de sus enfermos y la comunidad."
