@@ -11,6 +11,7 @@ public class UIManager : Singleton<UIManager>
     [Header("Panels")]   
     [SerializeField] private GameObject panelStats;
     [SerializeField] private GameObject panelInventory;
+    [SerializeField] private GameObject panelDiary;
 
 
     [Header("Barra")]   //la barrita de color
@@ -113,11 +114,22 @@ public class UIManager : Singleton<UIManager>
     public void OpenClosePanelStats()
     {
         panelStats.SetActive(!panelStats.activeSelf);
+        panelDiary.SetActive(false);
+        panelInventory.SetActive(false);
     }
 
     public void OpenClosePanelInventory()
     {
         panelInventory.SetActive(!panelInventory.activeSelf);
+        panelDiary.SetActive(false);
+        panelStats.SetActive(false);
+    }
+
+    public void OpenClosePanelDiary()
+    {
+        panelDiary.SetActive(!panelDiary.activeSelf);
+        panelStats.SetActive(false);
+        panelInventory.SetActive(false);
     }
 
 
