@@ -10,6 +10,8 @@ public class Inventory : Singleton<Inventory>
     [Header("Items")]
     [SerializeField] private InventoryItem[] itemsInventory;
 
+    public InventoryItem[] ItemsInventory => itemsInventory;
+
 
     private void Start()
     {
@@ -21,7 +23,27 @@ public class Inventory : Singleton<Inventory>
         if( itemForAdd == null) { return; }
         if(cant<= 0) { return; }
         //verificar si ya existe uno
-        //List<int> indexes = VerifyExistence(itemForAdd.Id); //ta fallando aqui
+        /*List<int> indexes = VerifyExistence(itemForAdd.Id); //ta fallando aqui
+
+         if (itemForAdd.IsAcumulable)
+         {
+             if (indexes.Count > 0)
+             {
+                 for (int i = 0; i < indexes.Count; i++)
+                 {
+                     if (itemsInventory[indexes[i]].Cant < itemForAdd.AcumulacionMax)
+                     {
+                         itemsInventory[indexes[i]].Cant += cant;
+                         if (itemsInventory[indexes[i]].Cant > itemForAdd.AcumulacionMax)
+                         {
+                             int dif = itemsInventory[indexes[i]].Cant - itemForAdd.AcumulacionMax;
+                            AddItem(itemForAdd, dif);
+                         }
+                        InventoryUI.Instance.DrawItemInventory(itemForAdd, itemsInventory[indexes[i]].Cant, indexes[i]);
+                    }
+                }
+            }
+        }*/
 
 
         if (cant > itemForAdd.AcumulacionMax)
@@ -61,7 +83,8 @@ public class Inventory : Singleton<Inventory>
             if (itemsInventory[i] == null)
             {
                 itemsInventory[i] = item.CopyItem();
-                itemsInventory[i].Cant = cantidad;
+                itemsInventory[i].Cant = cantidad;               
+                InventoryUI.Instance.DrawItemInventory(item, cantidad, i);
                 return;
             }
         }

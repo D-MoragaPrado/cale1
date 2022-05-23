@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5978992650258215620
 RectTransform:
   m_ObjectHideFlags: 0
@@ -199,7 +199,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4036488089666578420}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6277269308772097661}
+        m_TargetAssemblyTypeName: SlotInventory, Assembly-CSharp
+        m_MethodName: ClickSlot
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &6277269308772097661
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -212,6 +224,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb0a83bb0b1c6ca4ca958d9c7a7cfd26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemIcon: {fileID: 3913127252409263455}
+  fondoCantidad: {fileID: 7261929181106917870}
+  cantTMP: {fileID: 959135303120809516}
 --- !u!1 &7261929181106917870
 GameObject:
   m_ObjectHideFlags: 0
@@ -229,7 +244,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7619878841188717523
 RectTransform:
   m_ObjectHideFlags: 0
