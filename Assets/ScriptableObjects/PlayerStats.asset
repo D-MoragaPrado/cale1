@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4820dd3093468ab4ca7eb1ecb52524ac, type: 3}
   m_Name: PlayerStats
   m_EditorClassIdentifier: 
-  damage: 30
-  defense: 12
-  speed: 125
-  level: 6
-  actualExp: 62
-  expRequiredNextLevel: 64
-  percentageCritical: 15
-  percentageBlocking: 15
+  damage: 5
+  defense: 2
+  speed: 100
+  level: 1
+  actualExp: 0
+  expRequiredNextLevel: 2
+  percentageCritical: 0
+  percentageBlocking: 0
   actualExpTemp: 0

@@ -10,6 +10,9 @@ public class UIManager : Singleton<UIManager>
 
     [Header("Panels")]   
     [SerializeField] private GameObject panelStats;
+    [SerializeField] private GameObject panelInventory;
+    [SerializeField] private GameObject panelDiary;
+    [SerializeField] private GameObject panelQuests;
 
 
     [Header("Barra")]   //la barrita de color
@@ -107,5 +110,51 @@ public class UIManager : Singleton<UIManager>
         expRequiredNextLevel = pRequiredExp;
     }
 
-    
+    #region Panels
+
+    public void OpenClosePanelStats()
+    {
+        panelStats.SetActive(!panelStats.activeSelf);
+        panelDiary.SetActive(false);
+        panelInventory.SetActive(false);
+    }
+
+    public void OpenClosePanelInventory()
+    {
+        panelInventory.SetActive(!panelInventory.activeSelf);
+        panelDiary.SetActive(false);
+        panelStats.SetActive(false);
+    }
+
+    public void OpenClosePanelDiary()
+    {
+        panelDiary.SetActive(!panelDiary.activeSelf);
+        panelStats.SetActive(false);
+        panelInventory.SetActive(false);
+    }
+
+    public void OpenClosePanelQuests()
+    {
+        panelQuests.SetActive(!panelQuests.activeSelf);
+        panelStats.SetActive(false);
+        panelInventory.SetActive(false);
+        panelDiary.SetActive(false);
+    }
+
+    public void OpenPanelInteraction(InteractionExtraNPC tipoInteraction)
+    {
+        switch (tipoInteraction)
+        {
+            case InteractionExtraNPC.Quests:
+                OpenClosePanelQuests();
+                break;
+            case InteractionExtraNPC.Tienda:
+                break;
+            case InteractionExtraNPC.Crafting:
+                break;
+            default:
+                break;
+        }
+    }
+    #endregion
 }

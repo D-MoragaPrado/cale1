@@ -1,0 +1,43 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
+using System;
+
+public enum TipoDeInteraccion
+{
+    Click,
+    Usar,
+    equipar,
+    Remover
+}
+
+public class SlotInventory : MonoBehaviour
+{
+
+    public static Action<TipoDeInteraccion, int> EventosSlotInteraccion;
+
+    [SerializeField] private Image itemIcon;
+    [SerializeField] private GameObject fondoCantidad;
+    [SerializeField] private TextMeshProUGUI cantTMP;
+
+    public int Index { get; set; }
+    
+    public void UpdateSlotUI(InventoryItem item, int cant)
+    {
+        itemIcon.sprite = item.Icono;
+        cantTMP.text = cant.ToString();
+    }
+
+    public void ActiveSlotUI ( bool state)
+    {
+        itemIcon.gameObject.SetActive(state);
+        fondoCantidad.SetActive(state);
+    }
+
+    public void ClickSlot()
+    {
+        EventosSlotInteraccion?.Invoke(TipoDeInteraccion.Click, Index);
+    }
+}
