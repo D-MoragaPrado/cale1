@@ -12,6 +12,7 @@ public class UIManager : Singleton<UIManager>
     [SerializeField] private GameObject panelStats;
     [SerializeField] private GameObject panelInventory;
     [SerializeField] private GameObject panelDiary;
+    [SerializeField] private GameObject panelQuests;
 
 
     [Header("Barra")]   //la barrita de color
@@ -132,6 +133,28 @@ public class UIManager : Singleton<UIManager>
         panelInventory.SetActive(false);
     }
 
+    public void OpenClosePanelQuests()
+    {
+        panelQuests.SetActive(!panelQuests.activeSelf);
+        panelStats.SetActive(false);
+        panelInventory.SetActive(false);
+        panelDiary.SetActive(false);
+    }
 
+    public void OpenPanelInteraction(InteractionExtraNPC tipoInteraction)
+    {
+        switch (tipoInteraction)
+        {
+            case InteractionExtraNPC.Quests:
+                OpenClosePanelQuests();
+                break;
+            case InteractionExtraNPC.Tienda:
+                break;
+            case InteractionExtraNPC.Crafting:
+                break;
+            default:
+                break;
+        }
+    }
     #endregion
 }

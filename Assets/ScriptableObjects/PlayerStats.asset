@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 5
   defense: 2
-  speed: 120
+  speed: 100
   level: 1
   actualExp: 0
   expRequiredNextLevel: 2

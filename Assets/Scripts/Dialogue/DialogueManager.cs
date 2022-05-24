@@ -14,11 +14,13 @@ public class DialogueManager : Singleton<DialogueManager>
     private Queue<string> dialoguesSequence;
     private bool dialogueAnimated;
     private bool despedidaDisplayed;
+    private bool saludoDisplayed;
 
 
     private void Start()
     {
         dialoguesSequence = new Queue<string>();
+        saludoDisplayed = false;
     }
     private void Update()
     {
@@ -29,7 +31,12 @@ public class DialogueManager : Singleton<DialogueManager>
 
         if (Input.GetKeyDown(KeyCode.E))
         {
-            ConfigPanel(NPCDisponible.Dialogue);
+            if (!saludoDisplayed)
+            {
+                ConfigPanel(NPCDisponible.Dialogue);
+                saludoDisplayed = true;
+            }
+            
         }
 
         if (Input.GetKeyDown(KeyCode.Space))
@@ -38,8 +45,20 @@ public class DialogueManager : Singleton<DialogueManager>
             {
                 OpenClosePanelDialogue(false);
                 despedidaDisplayed = false;
+                saludoDisplayed = false;
                 return;
             }
+            if (NPCDisponible.Dialogue.contExtraInteraction)
+            {
+                UIManager.Instance.OpenPanelInteraction(NPCDisponible.Dialogue.InteractionExtra);
+                OpenClosePanelDialogue(false);
+                saludoDisplayed = false;
+                despedidaDisplayed = false;
+                return;
+            }
+
+
+
             if (dialogueAnimated)
             {
                 ContinueDialogue();
