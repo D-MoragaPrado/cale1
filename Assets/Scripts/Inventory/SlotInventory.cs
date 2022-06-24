@@ -23,6 +23,8 @@ public class SlotInventory : MonoBehaviour
     [SerializeField] private TextMeshProUGUI cantTMP;
 
     public int Index { get; set; }
+
+    private Button _button;
     
     public void UpdateSlotUI(InventoryItem item, int cant)
     {
@@ -36,8 +38,22 @@ public class SlotInventory : MonoBehaviour
         fondoCantidad.SetActive(state);
     }
 
+    public void SelectSlot()
+    {
+        _button.Select();
+    }
+
+
     public void ClickSlot()
     {
         EventosSlotInteraccion?.Invoke(TipoDeInteraccion.Click, Index);
+    }
+
+    public void UseItemSlot()
+    {
+        if (Inventory.Instance.ItemsInventory[Index] != null)
+        {
+            EventosSlotInteraccion?.Invoke(TipoDeInteraccion.Usar, Index);
+        }
     }
 }

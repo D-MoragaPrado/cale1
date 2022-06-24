@@ -9,7 +9,7 @@ public class PlayerMana : MonoBehaviour
     [SerializeField] protected private float regenerationForSecond;
 
     public float Mana { get; private set; }
-
+    public bool CanBeRestore => Mana < maxMana;
 
     private PlayerLife _playerLife;
 
@@ -35,6 +35,18 @@ public class PlayerMana : MonoBehaviour
         }
         UpdateManaBar();
     }
+
+    public void RestoreMana(float cant)
+    {
+        if (Mana >= maxMana) return;
+        Mana += cant;
+        if(Mana > maxMana)
+        {
+            Mana = maxMana;
+        }
+        UIManager.Instance.UpdateManaPlayer(Mana, maxMana);
+    }
+
 
     private void RegenerateMana()
     {

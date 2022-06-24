@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Inventory : Singleton<Inventory>
 {
+    [SerializeField] private Player player;
+    public Player Player => player;
+
     [SerializeField] private int cantSlot;
     public int CantSlot => cantSlot;
 
@@ -89,4 +92,67 @@ public class Inventory : Singleton<Inventory>
             }
         }
     }
+
+
+    private void EliminateItem(int index)
+    {
+        itemsInventory[index].Cant--;
+        if(itemsInventory[index].Cant <= 0)
+        {
+            itemsInventory[index].Cant = 0;
+            itemsInventory[index] = null;
+            InventoryUI.Instance.DrawItemInventory(null, 0, index);
+        }
+        else
+        {
+            InventoryUI.Instance.DrawItemInventory(itemsInventory[index], itemsInventory[index].Cant, index);
+        }
+    }
+
+
+    private void UseItem(int index)
+    {
+        if (itemsInventory[index] == null) return;
+
+        if (itemsInventory[index].UseItem())
+        {
+            EliminateItem(index);
+        }
+    }
+
+
+    #region Eventos
+    private void SlotInteraccionRespuesta(TipoDeInteraccion tipo, int index)
+    {
+        switch (tipo)
+        {
+            /*case TipoDeInteraccion.Click:
+                break;*/
+            case TipoDeInteraccion.Usar:
+                UseItem(index);
+                break;
+            case TipoDeInteraccion.equipar:
+                break;
+            case TipoDeInteraccion.Remover:
+                break;
+            default:
+                break;
+        }
+        /*if (tipo == TipoDeInteraccion.Click)
+        {
+            UpdateInventoryDescription(index);
+        }*/
+    }
+
+    private void OnEnable()
+    {
+        SlotInventory.EventosSlotInteraccion += SlotInteraccionRespuesta;
+    }
+
+    private void OnDisable()
+    {
+        SlotInventory.EventosSlotInteraccion -= SlotInteraccionRespuesta;
+
+    }
+    #endregion
 }

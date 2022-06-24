@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.EventSystems;
 
 public class InventoryUI : Singleton<InventoryUI>
 {
@@ -15,11 +16,18 @@ public class InventoryUI : Singleton<InventoryUI>
     [SerializeField] private SlotInventory slotPrefab;
     [SerializeField] private Transform contenedor;
 
+
+    public SlotInventory SlotSelected { get; private set; }
     List<SlotInventory> slotsDisponibles = new List<SlotInventory>();
     // Start is called before the first frame update
     void Start()
     {
         InitializeInventory();
+    }
+
+    private void Update()
+    {
+        UpgradeSlotSelected();
     }
 
     private void InitializeInventory()
@@ -31,6 +39,19 @@ public class InventoryUI : Singleton<InventoryUI>
            slotsDisponibles.Add(newSlot);
         }
     }
+
+    private void UpgradeSlotSelected()
+    {
+        GameObject goSelected = EventSystem.current.currentSelectedGameObject;
+        if (goSelected == null) return;
+
+        SlotInventory slot = goSelected.GetComponent<SlotInventory>();
+        if(slot != null)
+        {
+            SlotSelected = slot;
+        }
+    }
+
 
     public void DrawItemInventory(InventoryItem itemForAdd, int cant , int itemIndex)
     {
@@ -45,7 +66,6 @@ public class InventoryUI : Singleton<InventoryUI>
             slot.ActiveSlotUI(false);
         }
     }
-
     private void UpdateInventoryDescription(int index)
     {
         if (Inventory.Instance.ItemsInventory[index] != null)
@@ -61,10 +81,19 @@ public class InventoryUI : Singleton<InventoryUI>
         }
     }
 
-
-    private void SlotInterraccionRespuesta(TipoDeInteraccion tipo, int index)
+    public void UseItem()
     {
-        if(tipo == TipoDeInteraccion.Click)
+        if(SlotSelected != null)
+        {
+            SlotSelected.UseItemSlot();
+            SlotSelected.SelectSlot();
+        }
+    }
+
+    #region Eventos
+    private void SlotInteraccionRespuesta(TipoDeInteraccion tipo, int index)
+    {
+        if (tipo == TipoDeInteraccion.Click)
         {
             UpdateInventoryDescription(index);
         }
@@ -72,11 +101,17 @@ public class InventoryUI : Singleton<InventoryUI>
 
     private void OnEnable()
     {
-        SlotInventory.EventosSlotInteraccion += SlotInterraccionRespuesta;
+        SlotInventory.EventosSlotInteraccion += SlotInteraccionRespuesta;
     }
 
     private void OnDisable()
     {
-        SlotInventory.EventosSlotInteraccion -= SlotInterraccionRespuesta;
+        SlotInventory.EventosSlotInteraccion -= SlotInteraccionRespuesta;
     }
+    #endregion
+
+
+
+
+    
 }

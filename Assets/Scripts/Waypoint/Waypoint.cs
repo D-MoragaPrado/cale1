@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Waypoint : MonoBehaviour
 {
-    [SerializeField] private Vector2[] points;
-    public Vector2[] Points => points;
+    [SerializeField] private Vector3[] points;
+    public Vector3[] Points => points;
 
 
-    public Vector2 ActualPosition { get; set; }
+    public Vector3 ActualPosition { get; set; }
     private bool gameOn;
 
     private void Start()
@@ -16,6 +16,12 @@ public class Waypoint : MonoBehaviour
         gameOn = true;
         ActualPosition = transform.position;
     }
+
+    public Vector3 GetMovementDirection(int index)
+    {
+        return ActualPosition + points[index];
+    }
+
 
 
     private void OnDrawGizmos()
