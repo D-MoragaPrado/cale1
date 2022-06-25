@@ -1652,6 +1652,8 @@ GameObject:
   - component: {fileID: 155842991}
   - component: {fileID: 155842995}
   - component: {fileID: 155842996}
+  - component: {fileID: 155842998}
+  - component: {fileID: 155842997}
   m_Layer: 0
   m_Name: NPC_pincoya
   m_TagString: Untagged
@@ -1759,7 +1761,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 155842990}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 503, y: -500, z: 0}
+  m_LocalPosition: {x: 375, y: -478.7, z: 0}
   m_LocalScale: {x: 64, y: 64, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1794,6 +1796,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerex: {fileID: 1220775549}
+--- !u!114 &155842997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 155842990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17c4d72280906bf4d9c05c45baacce2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 23
+--- !u!114 &155842998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 155842990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ceff72c3c61c2f41a17071a090495c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  points:
+  - {x: 22.906921, y: 0, z: 0}
+  - {x: 131.12231, y: 0, z: 0}
 --- !u!1 &157915628
 GameObject:
   m_ObjectHideFlags: 0
@@ -19304,7 +19334,7 @@ GameObject:
   - component: {fileID: 1220775546}
   - component: {fileID: 1220775548}
   - component: {fileID: 1220775549}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -19348,7 +19378,7 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 4294967295
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
@@ -19371,7 +19401,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 1
   m_Sprite: {fileID: 607926016, guid: b7b6ccc8ffaf99a4f8c650bf91a996e4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -29752,6 +29782,8 @@ GameObject:
   - component: {fileID: 2012491077}
   - component: {fileID: 2012491076}
   - component: {fileID: 2012491075}
+  - component: {fileID: 2012491082}
+  - component: {fileID: 2012491081}
   m_Layer: 0
   m_Name: trauco
   m_TagString: Untagged
@@ -29771,7 +29803,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4e364818f9b84645b9bbdf319de7d86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direction: 0
   speed: 50
 --- !u!114 &2012491076
 MonoBehaviour:
@@ -29787,7 +29818,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   points:
   - {x: 10, y: 0, z: 0}
-  - {x: 139.90247, y: 0, z: 0}
+  - {x: 176.94598, y: 0, z: 0}
+  - {x: 96.30481, y: 105.84149, z: 0}
 --- !u!50 &2012491077
 Rigidbody2D:
   serializedVersion: 4
@@ -29808,7 +29840,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &2012491078
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -29875,7 +29907,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 4ed82539126a4cc4f90f1eb957807e41, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -29902,6 +29934,45 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2012491081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2012491074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d61aac8e6af284f41a93638da207ca87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stats: {fileID: 11400000, guid: 84e72171315d18e46bd75413358abc7f, type: 2}
+  estadoInicial: {fileID: 11400000, guid: a627f7bd5bd6fa14598869971270319c, type: 2}
+  estadoDefault: {fileID: 11400000, guid: a941c45c6d23d9647941f802b96bdfa4, type: 2}
+  rangeDetection: 200
+  rangeAttack: 60
+  speedMovement: 100
+  playerLayerMask:
+    serializedVersion: 2
+    m_Bits: 64
+  damage: 70
+  typeAttack: 0
+  timeBetweenAttack: 1.5
+  showDetection: 1
+  showRangeAttack: 1
+--- !u!114 &2012491082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2012491074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d15815cafe7f93e46aad8476fcdec6aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 50
 --- !u!1 &2042151055
 GameObject:
   m_ObjectHideFlags: 0

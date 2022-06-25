@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0874f28fa228e5b4c89ef30aafba4815, type: 3}
+  m_Name: StateGoRoad
+  m_EditorClassIdentifier: 
+  Acciones:
+  - {fileID: 11400000, guid: 269310d88f97b01408b20388f7022067, type: 2}
+  Transiciones:
+  - Decision: {fileID: 11400000, guid: c9c46f0c671816741b1f9dc2e6e6428b, type: 2}
+    EstadoTrue: {fileID: 11400000, guid: 8a0e9500fdd2b564cb6efd3375ad36a9, type: 2}
+    EstadoFalse: {fileID: 11400000, guid: a941c45c6d23d9647941f802b96bdfa4, type: 2}
