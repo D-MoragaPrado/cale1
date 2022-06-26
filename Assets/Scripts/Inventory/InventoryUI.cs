@@ -90,6 +90,23 @@ public class InventoryUI : Singleton<InventoryUI>
         }
     }
 
+    public void EquipItem()
+    {
+        if (SlotSelected != null)
+        {
+            SlotSelected.EquipItemSlot();
+            SlotSelected.SelectSlot();
+        }
+    }
+    public void RemoveItem()
+    {
+        if (SlotSelected != null)
+        {
+            SlotSelected.RemoveItemSlot();
+            SlotSelected.SelectSlot();
+        }
+    }
+
     #region Eventos
     private void SlotInteraccionRespuesta(TipoDeInteraccion tipo, int index)
     {

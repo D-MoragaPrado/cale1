@@ -23,9 +23,17 @@ public class ActionAttackPlayer : IAAccion
             return;
         }
 
-        if (controller.PlayerInRangeAttack(controller.RangeAttack)){
-
-            controller.AttackMelee(controller.Damage);
+        if (controller.PlayerInRangeAttack(controller.RangeAttackDetermined))
+        {
+            if (controller.TypeAttack == AttackTypes.Embestida)
+            {
+                controller.AttackRamming(controller.Damage);
+            }
+            else
+            {
+                controller.AttackMelee(controller.Damage);
+            }
+            
             controller.UpdateTimeBetweenAtack();
         }
     }

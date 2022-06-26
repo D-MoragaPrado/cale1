@@ -29,6 +29,7 @@ public class BaseLife : MonoBehaviour
 
             if (Health <= 0f)
             {
+                Health = 0;
                 UpdateLifeBar(Health, maxHealth);
                 PlayerDead();
             }

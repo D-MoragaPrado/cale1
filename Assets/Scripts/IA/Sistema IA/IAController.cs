@@ -10,6 +10,9 @@ public enum AttackTypes
 
 public class IAController : MonoBehaviour
 {
+    public static System.Action<float> EventDamageDone;
+
+
     [Header("Stats")]
     [SerializeField] private PlayerStats stats;
 
@@ -33,6 +36,7 @@ public class IAController : MonoBehaviour
     [Header("Debug")]
     [SerializeField] private bool showDetection;
     [SerializeField] private bool showRangeAttack;
+    [SerializeField] private bool showRangeRamming;
 
     private float timeForNextAttack;
     private BoxCollider2D _boxCollider2D;
@@ -42,12 +46,11 @@ public class IAController : MonoBehaviour
     public IAEstado EstadoActual { get; set; }
     public EnemyMovement EnemyMovement { get; set; }
     public float RangeDetection => rangeDetection;
-    public float RangeAttack => rangeAttack;
     public float Damage => damage;
     public AttackTypes TypeAttack => typeAttack;
     public float SpeedMovement => speedMovement;
     public LayerMask PlayerLayerMask => playerLayerMask;
-    //public float RangeAttackDetermined
+    public float RangeAttackDetermined => typeAttack == AttackTypes.Embestida ? rangeRamming : rangeAttack;
 
     private void Start()
     {
@@ -120,6 +123,7 @@ public class IAController : MonoBehaviour
         }
         damageToDo = Mathf.Max(cant - stats.defense, 1f);
         PlayerReference.GetComponent<PlayerLife>().TakeDamage(damageToDo);
+        EventDamageDone?.Invoke(damageToDo);
     }
 
 
@@ -162,6 +166,12 @@ public class IAController : MonoBehaviour
         {
             Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(transform.position, rangeAttack);
+        }
+
+        if (showRangeRamming)
+        {
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawWireSphere(transform.position, rangeRamming);
         }
     }
 }

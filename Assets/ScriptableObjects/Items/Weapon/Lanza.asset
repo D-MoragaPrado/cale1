@@ -9,15 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b080e947e4c82c34ea63c87f4bef075b, type: 3}
+  m_Script: {fileID: 11500000, guid: e9c7ad8c8a62eba459763c3f36c0d0d8, type: 3}
   m_Name: Lanza
   m_EditorClassIdentifier: 
   Id: Lanza
   Nombre: Lanza
   Icono: {fileID: 21300000, guid: d0028980f55ffbf469556d3a66f92f0c, type: 3}
-  Descripcion: Lanza de madera y piedra utilizada para cazar
+  Descripcion: Lanza de madera y piedra utilizada para cazar.
   Tipo: 0
   IsConsumible: 0
   IsAcumulable: 0
   AcumulacionMax: 1
   Cant: 0
+  weapon: {fileID: 11400000, guid: e47f4b9b197998d458c984d2bac2b9dd, type: 2}

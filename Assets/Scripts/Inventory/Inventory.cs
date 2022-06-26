@@ -120,6 +120,27 @@ public class Inventory : Singleton<Inventory>
         }
     }
 
+    private void EquipItem(int index)
+    {
+        if (itemsInventory[index] == null) return;
+
+        if (itemsInventory[index].Tipo != TiposDeItem.Armas)
+        {
+            return;
+        }
+        itemsInventory[index].EquipItem();
+    }
+
+    private void RemoveItem(int index)
+    {
+        if (itemsInventory[index] == null) return;
+
+        if (itemsInventory[index].Tipo != TiposDeItem.Armas)
+        {
+            return;
+        }
+        itemsInventory[index].RemoveItem();
+    }
 
     #region Eventos
     private void SlotInteraccionRespuesta(TipoDeInteraccion tipo, int index)
@@ -131,9 +152,11 @@ public class Inventory : Singleton<Inventory>
             case TipoDeInteraccion.Usar:
                 UseItem(index);
                 break;
-            case TipoDeInteraccion.equipar:
+            case TipoDeInteraccion.Equipar:
+                EquipItem(index);
                 break;
             case TipoDeInteraccion.Remover:
+                RemoveItem(index);
                 break;
             default:
                 break;

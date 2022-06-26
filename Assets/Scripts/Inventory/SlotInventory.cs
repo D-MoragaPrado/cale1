@@ -9,7 +9,7 @@ public enum TipoDeInteraccion
 {
     Click,
     Usar,
-    equipar,
+    Equipar,
     Remover
 }
 
@@ -54,6 +54,23 @@ public class SlotInventory : MonoBehaviour
         if (Inventory.Instance.ItemsInventory[Index] != null)
         {
             EventosSlotInteraccion?.Invoke(TipoDeInteraccion.Usar, Index);
+        }
+    }
+
+
+    public void EquipItemSlot()
+    {
+        if (Inventory.Instance.ItemsInventory[Index] != null)
+        {
+            EventosSlotInteraccion?.Invoke(TipoDeInteraccion.Equipar, Index);
+        }
+    }
+
+    public void RemoveItemSlot()
+    {
+        if (Inventory.Instance.ItemsInventory[Index] != null)
+        {
+            EventosSlotInteraccion?.Invoke(TipoDeInteraccion.Remover, Index);
         }
     }
 }

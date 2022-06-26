@@ -20,7 +20,7 @@ public class DecisionPlayerRangeAttack : IADecision
 
         float distance = (controller.PlayerReference.position - controller.transform.position).sqrMagnitude;
 
-        if (distance < Mathf.Pow(controller.RangeAttack, 2))
+        if (distance < Mathf.Pow(controller.RangeAttackDetermined, 2))
         {
             return true;
         }
