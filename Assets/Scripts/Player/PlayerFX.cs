@@ -2,6 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum TipoPersonaje
+{
+    Player,
+    IA
+}
+
+
+
 public class PlayerFX : MonoBehaviour
 {
     [Header("Pooler")]
@@ -11,7 +19,8 @@ public class PlayerFX : MonoBehaviour
     [SerializeField] private GameObject canvasTextAnimationPrefab;
     [SerializeField] private Transform canvasTextPosition;
 
-    
+    [Header("Tipo")]
+    [SerializeField] private TipoPersonaje tipoPersonaje;
 
     private void Start()
     {
@@ -19,11 +28,11 @@ public class PlayerFX : MonoBehaviour
     }
 
 
-    private IEnumerator IEShowText(float cant)
+    private IEnumerator IEShowText(float cant, Color color )
     {
         GameObject newTextGO = pooler.GetInstance();
         TextAnimation text = newTextGO.GetComponent<TextAnimation>();
-        text.SetText(cant);
+        text.SetText(cant,color);
         newTextGO.transform.SetParent(canvasTextPosition);
         newTextGO.transform.position = canvasTextPosition.position;
         newTextGO.SetActive(true);
@@ -35,18 +44,33 @@ public class PlayerFX : MonoBehaviour
     }
 
 
-    private void ResponceDamageReceived(float damage)
+    private void ResponceDamageReceivedToPlayer(float damage)
     {
-        StartCoroutine(IEShowText(damage));
+        if (tipoPersonaje == TipoPersonaje.Player)
+        {
+            StartCoroutine(IEShowText(damage,Color.black));
+        }
+        
     }
+
+    private void ResponceDamageToEnemy(float damage)
+    {
+        if(tipoPersonaje == TipoPersonaje.IA)
+        {
+            StartCoroutine(IEShowText(damage,Color.red));
+        }
+    }
+
 
     private void OnEnable()
     {
-        IAController.EventDamageDone += ResponceDamageReceived;
+        IAController.EventDamageDone += ResponceDamageReceivedToPlayer;
+        PlayerAttack.EventDamagedEnemy += ResponceDamageToEnemy;
     }
 
     private void OnDisable()
     {
-        IAController.EventDamageDone -= ResponceDamageReceived;
+        IAController.EventDamageDone -= ResponceDamageReceivedToPlayer;
+        PlayerAttack.EventDamagedEnemy -= ResponceDamageToEnemy;
     }
 }

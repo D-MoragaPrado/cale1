@@ -15,12 +15,14 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D _rigibody2D;
     private Vector2 _movementDirection;
     private Vector2 _input;
+    private PlayerLife _playerLife;
 
     
 
     private void Awake()
     {
-        _rigibody2D = GetComponent<Rigidbody2D>(); 
+        _rigibody2D = GetComponent<Rigidbody2D>();
+        _playerLife = GetComponent<PlayerLife>();
     }
     void Start()
     {
@@ -30,6 +32,11 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (_playerLife.PlayerDefeated)
+        {
+            _movementDirection = Vector2.zero;
+            return;
+        }
         speed = stats.speed; // puede llevarse mucho
         _input = new Vector2(x: Input.GetAxisRaw("Horizontal"), y: Input.GetAxisRaw("Vertical"));
 

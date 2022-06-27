@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
+    public static System.Action<float> EventDamagedEnemy;
+
     [Header("Stats")]
     [SerializeField] private PlayerStats stats;
 
@@ -13,14 +15,81 @@ public class PlayerAttack : MonoBehaviour
     [Header("Posiciones de Disparo")]
     [SerializeField] private Transform[] positionsShot;
 
+    [Header("Ataque")]
+    [SerializeField] private float timeBetweenAttack;
+
     public Weapon WeaponEquiped { get; private set; }
     public EnemyInteraction TargetEnemy { get; private set; }
+    public bool Attacking { get; set; }
 
+
+    private PlayerMana _playerMana;
     private int indexDirectionShot;
+    private float timeForNextAttack;
+
+    private void Awake()
+    {
+        _playerMana = GetComponent<PlayerMana>();
+    }
 
     private void Update()
     {
         GetDirectionShot();
+        if (Time.time > timeForNextAttack)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                if (WeaponEquiped == null || TargetEnemy == null) { return; }
+
+                UseWeapon();
+                timeForNextAttack = Time.time + timeBetweenAttack;
+                StartCoroutine(IESetConditionAttack());
+            }
+        }
+    }
+
+    private void UseWeapon()
+    {
+        if (WeaponEquiped.Type == TypeWeapon.Magia)
+        {
+            if (_playerMana.Mana < WeaponEquiped.ManaRequired) { return;}
+
+            GameObject newProjectile = pooler.GetInstance();
+            newProjectile.transform.localPosition = positionsShot[indexDirectionShot].position;
+
+            Projectile projectile = newProjectile.GetComponent<Projectile>();
+            projectile.InitializeProjectile(this);
+
+            newProjectile.SetActive(true);
+            _playerMana.UseMana(WeaponEquiped.ManaRequired);
+        }
+        else
+        {
+            float damage = GetDamage();
+            EnemyLife enemyLife = TargetEnemy.GetComponent<EnemyLife>();
+            enemyLife.TakeDamage( damage );
+            EventDamagedEnemy?.Invoke(damage);
+        }
+    }
+
+    public float GetDamage()
+    {
+        float cant = stats.damage;
+        if(Random.value < stats.percentageCritical / 100)
+        {
+            cant *= 2;
+        }
+
+        return cant;
+    }
+
+
+
+    private IEnumerator IESetConditionAttack()
+    {
+        Attacking = true;
+        yield return new WaitForSeconds(0.3f);
+        Attacking = false;
     }
 
 

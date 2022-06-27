@@ -114,6 +114,8 @@ public class Inventory : Singleton<Inventory>
     {
         if (itemsInventory[index] == null) return;
 
+        if (itemsInventory[index].Tipo == TiposDeItem.Armas) return;
+
         if (itemsInventory[index].UseItem())
         {
             EliminateItem(index);

@@ -27,6 +27,11 @@ public class EnemyInteraction : MonoBehaviour
         
     }
 
+    public void DisableSpriteSelect()
+    {
+        selectionMeleeFX.SetActive(false);
+        selectionRangeFX.SetActive(false);
+    }
 
 
 }

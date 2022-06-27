@@ -15,7 +15,12 @@ public class PlayerDetector : MonoBehaviour
         if (other.CompareTag("Enemy"))
         {
             EnemyDetected = other.GetComponent<EnemyInteraction>();
-            EventEnemyDetected?.Invoke(EnemyDetected);
+
+            if (EnemyDetected.GetComponent<EnemyLife>().Health > 0)
+            {
+                EventEnemyDetected?.Invoke(EnemyDetected);
+            }
+            
         }
     }
 

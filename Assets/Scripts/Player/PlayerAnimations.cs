@@ -6,10 +6,12 @@ public class PlayerAnimations : MonoBehaviour
 {
     [SerializeField] private string layerIdle;
     [SerializeField] private string layerWalk;
+    [SerializeField] private string layerAttack;
     [SerializeField] private string Defeated;
 
     private Animator _animator;
     private PlayerMovement _playermovement;
+    private PlayerAttack _playerAttack;
 
     private readonly int directionX = Animator.StringToHash("x");
     private readonly int directionY = Animator.StringToHash("y");
@@ -19,6 +21,7 @@ public class PlayerAnimations : MonoBehaviour
     {
         _animator = GetComponent<Animator>();
         _playermovement = GetComponent<PlayerMovement>();
+        _playerAttack = GetComponent<PlayerAttack>();
     }
 
 
@@ -51,7 +54,11 @@ public class PlayerAnimations : MonoBehaviour
 
     private void UpdateLayer()
     {
-        if (_playermovement.MovementOn)
+        if (_playerAttack.Attacking == true)
+        {
+            ActivateLayer(layerAttack);
+        }
+        else if (_playermovement.MovementOn)
         {
             ActivateLayer(layerWalk);
         }
@@ -66,6 +73,11 @@ public class PlayerAnimations : MonoBehaviour
         if (_animator.GetLayerWeight(_animator.GetLayerIndex(layerIdle)) == 1   )
         {
             _animator.SetBool(Defeated , true);
+        }
+        else
+        {
+            ActivateLayer(layerIdle);
+            _animator.SetBool(Defeated, true);
         }
     }
 
