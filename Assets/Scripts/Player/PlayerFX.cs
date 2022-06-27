@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class PlayerFX : MonoBehaviour
 {
+    [Header("Pooler")]
+    [SerializeField] private ObjectPooler pooler;
+
+    [Header("Config")]
     [SerializeField] private GameObject canvasTextAnimationPrefab;
     [SerializeField] private Transform canvasTextPosition;
 
-    private ObjectPooler pooler;
-
-    private void Awake()
-    {
-        pooler = GetComponent<ObjectPooler>();
-    }
+    
 
     private void Start()
     {

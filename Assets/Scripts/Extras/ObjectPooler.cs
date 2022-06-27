@@ -39,4 +39,10 @@ public class ObjectPooler : MonoBehaviour
         }
         return null;
     }
+
+    public void DestroyPooler()
+    {
+        Destroy(ListContenedor);
+        list.Clear();
+    }
 }

@@ -4,15 +4,9 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [Header("Config")]
+    [SerializeField] private float speed;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    private Rigidbody2D _rigidbody2D;
+    private Vector2 direction;
 }

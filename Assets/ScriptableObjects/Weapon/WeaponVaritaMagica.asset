@@ -17,5 +17,6 @@ MonoBehaviour:
   Type: 0
   Damage: 4
   ManaRequired: 10
+  ProjectilePrefab: {fileID: 2739358406869455779, guid: b39124aa3d39db84bb1e8528c13a97dc, type: 3}
   ChanceCritic: 1.5
   ChanceBlock: 0.5

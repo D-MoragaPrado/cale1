@@ -16,6 +16,21 @@ public class PlayerStats : ScriptableObject
     public float actualExpTemp;
 
 
+    public void AddBonusForWeapon(Weapon weapon)
+    {
+        damage += weapon.Damage;
+        percentageCritical += weapon.ChanceCritic;
+        percentageBlocking += weapon.ChanceBlock;
+    }
+
+    public void RemoveBonusForWeapon(Weapon weapon)
+    {
+        damage -= weapon.Damage;
+        percentageCritical -= weapon.ChanceCritic;
+        percentageBlocking -= weapon.ChanceBlock;
+    }
+
+
     public void ResetValues()
     {
         damage = 5f ;

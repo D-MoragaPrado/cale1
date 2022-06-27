@@ -28,11 +28,6 @@ public class PlayerLife : BaseLife
 
     private void Update()  // solo para probar
     {
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            TakeDamage(10);
-        }
-
         if (Input.GetKeyDown(KeyCode.R))
         {
             RestoreHealth(10);

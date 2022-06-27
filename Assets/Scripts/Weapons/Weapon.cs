@@ -19,6 +19,7 @@ public class Weapon : ScriptableObject
 
     [Header("Magic Weapon")]
     public float ManaRequired;
+    public Projectile ProjectilePrefab;
 
     [Header("Stats")]
     public float ChanceCritic;
