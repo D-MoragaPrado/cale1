@@ -1,18 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
 
 public class LootButton : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private Image itemIcon;
+    [SerializeField] private TextMeshProUGUI itemName;
+
+    public DropItem ItemPorRecoger { get; set; }
+
+    public void ConfigLootItem(DropItem dropItem)
     {
-        
+        ItemPorRecoger = dropItem;
+        itemIcon.sprite = dropItem.Item.Icono;
+        itemName.text = $"{dropItem.Item.Nombre} x{dropItem.Cant}";
     }
 
-    // Update is called once per frame
-    void Update()
+    public void CollectItem()
     {
-        
+        if (ItemPorRecoger == null)
+        {
+            return;
+        }
+
+        Inventory.Instance.AddItem(ItemPorRecoger.Item, ItemPorRecoger.Cant);
+        ItemPorRecoger.ItemRecogido = true;
+        Destroy(gameObject);
     }
 }

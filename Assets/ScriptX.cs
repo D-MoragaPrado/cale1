@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ScriptX : MonoBehaviour
 {
-    [SerializeField] private PlayerExperience playerex;
+    [SerializeField] private string nameMision;
     private bool interactuado;
 
 
@@ -15,10 +15,9 @@ public class ScriptX : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player") && !interactuado)
+        if (other.CompareTag("Player") )
         {
-            playerex.AddExperience(4);
-            interactuado = true;
+            QuestManager.Instance.AddProgress(nameMision, 1);
         }
     }
 }

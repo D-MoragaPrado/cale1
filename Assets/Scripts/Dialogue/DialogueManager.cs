@@ -107,6 +107,10 @@ public class DialogueManager : Singleton<DialogueManager>
             string despedida = NPCDisponible.Dialogue.Despedida;
             SHowTextWithAnimation(despedida);
             despedidaDisplayed = true;
+            if(NPCDisponible.Dialogue.IdMision != null)
+            {
+                QuestManager.Instance.AddProgress(NPCDisponible.Dialogue.IdMision, 1);
+            }
             return;
         }
         

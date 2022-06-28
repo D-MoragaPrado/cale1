@@ -34,14 +34,14 @@ public class QuestManager : Singleton<QuestManager>
     {
         LoadQuestInMachi();
     }
-    private void Update()
+    /*private void Update()
     {
         if (Input.GetKeyDown(KeyCode.K))
         {
             AddProgress("pincoya", 1);
 
         }
-    }
+    }*/
     private void LoadQuestInMachi()
     {
         for (int i = 0; i < questDisponibles.Length; i++)

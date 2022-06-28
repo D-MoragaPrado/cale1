@@ -73,11 +73,28 @@ public class PlayerExperience : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    /*void Update()
     {
         if (Input.GetKeyDown(KeyCode.X))
         {
             AddExperience(2f);
         }
+    }*/
+
+
+    private void ResponceEnemyDefeated(float exp)
+    {
+        AddExperience(exp);
+    }
+
+
+    private void OnEnable()
+    {
+        EnemyLife.EventEnemyDefeated += ResponceEnemyDefeated;
+    }
+
+    private void OnDisable()
+    {
+        EnemyLife.EventEnemyDefeated -= ResponceEnemyDefeated;
     }
 }

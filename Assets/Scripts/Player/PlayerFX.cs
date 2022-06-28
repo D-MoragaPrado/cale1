@@ -22,6 +22,13 @@ public class PlayerFX : MonoBehaviour
     [Header("Tipo")]
     [SerializeField] private TipoPersonaje tipoPersonaje;
 
+    private EnemyLife _enemyLife;
+
+    private void Awake()
+    {
+        _enemyLife = GetComponent<EnemyLife>();
+    }
+
     private void Start()
     {
         pooler.CreatePooler(canvasTextAnimationPrefab);
@@ -53,9 +60,9 @@ public class PlayerFX : MonoBehaviour
         
     }
 
-    private void ResponceDamageToEnemy(float damage)
+    private void ResponceDamageToEnemy(float damage,EnemyLife enemyLife )
     {
-        if(tipoPersonaje == TipoPersonaje.IA)
+        if(tipoPersonaje == TipoPersonaje.IA && _enemyLife == enemyLife )
         {
             StartCoroutine(IEShowText(damage,Color.red));
         }

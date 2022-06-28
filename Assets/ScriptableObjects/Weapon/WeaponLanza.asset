@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1274633f5d572e14795969d2bd6d9a1a, type: 3}
   m_Name: WeaponLanza
   m_EditorClassIdentifier: 
-  WeaponIcon: {fileID: 21300000, guid: d0028980f55ffbf469556d3a66f92f0c, type: 3}
+  WeaponIcon: {fileID: 21300000, guid: bdc8bdb809923b9489fb93cc4fc42e35, type: 3}
   IconSkill: {fileID: 0}
   Type: 1
   Damage: 2
   ManaRequired: 0
+  ProjectilePrefab: {fileID: 0}
   ChanceCritic: 0.5
   ChanceBlock: 0.2

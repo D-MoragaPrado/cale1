@@ -29,9 +29,20 @@ public class SelectManager : MonoBehaviour
             RaycastHit2D hit = Physics2D.Raycast(camera.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, 
                 Mathf.Infinity, LayerMask.GetMask("Enemy"));
             if(hit.collider != null)
-            {
+            {              
                 EnemySelected = hit.collider.GetComponent<EnemyInteraction>();
-                EventEnemySelected?.Invoke(EnemySelected);
+                EnemyLife enemyLife = EnemySelected.GetComponent<EnemyLife>();
+
+                if (enemyLife.Health > 0f)
+                {
+                    EventEnemySelected?.Invoke(EnemySelected);
+                }
+                else
+                {
+                    EnemyLoot loot = EnemySelected.GetComponent<EnemyLoot>();
+                    LootManager.Instance.ShowLoot(loot);
+                }
+                
             }
             else
             {

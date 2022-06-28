@@ -1,18 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
-public class DropItem : MonoBehaviour
+[Serializable]
+public class DropItem 
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [Header("Info")]
+    public string Name;
+    public InventoryItem Item;
+    public int Cant;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [Header("Drop")]
+    [Range(0, 100)] public float PorcentajeDrop;
+
+    public bool ItemRecogido { get; set; }
 }

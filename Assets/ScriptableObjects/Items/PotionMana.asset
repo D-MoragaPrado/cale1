@@ -19,6 +19,6 @@ MonoBehaviour:
   Tipo: 1
   IsConsumible: 1
   IsAcumulable: 1
-  AcumulacionMax: 5
+  AcumulacionMax: 50
   Cant: 0
   ManaRestore: 10

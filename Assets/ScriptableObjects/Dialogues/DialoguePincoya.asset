@@ -16,6 +16,7 @@ MonoBehaviour:
   Icon: {fileID: 21300000, guid: 0f8e4eab5ca8b4547b1872abc260f655, type: 3}
   contExtraInteraction: 0
   InteractionExtra: 0
+  IdMision: pincoya
   Saludo: "Buenas forastero, la pesca ser\xE1 abundante hoy."
   Conversacion:
   - Oracion: Ayudo a personas que naufragan a llegar a la orilla, en caso de no sobrevivir

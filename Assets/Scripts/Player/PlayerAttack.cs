@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-    public static System.Action<float> EventDamagedEnemy;
+    public static System.Action<float,EnemyLife> EventDamagedEnemy;
 
     [Header("Stats")]
     [SerializeField] private PlayerStats stats;
@@ -68,7 +68,7 @@ public class PlayerAttack : MonoBehaviour
             float damage = GetDamage();
             EnemyLife enemyLife = TargetEnemy.GetComponent<EnemyLife>();
             enemyLife.TakeDamage( damage );
-            EventDamagedEnemy?.Invoke(damage);
+            EventDamagedEnemy?.Invoke(damage,enemyLife);
         }
     }
 

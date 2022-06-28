@@ -44,8 +44,9 @@ public class Projectile : MonoBehaviour
         if (other.CompareTag("Enemy"))
         {
             float damage = PlayerAttack.GetDamage();
-            targetEnemy.GetComponent<EnemyLife>().TakeDamage(damage);
-            PlayerAttack.EventDamagedEnemy?.Invoke(damage);
+            EnemyLife enemyLife = targetEnemy.GetComponent<EnemyLife>();
+            enemyLife.TakeDamage(damage);
+            PlayerAttack.EventDamagedEnemy?.Invoke(damage,enemyLife);
             gameObject.SetActive(false);
         }
     }

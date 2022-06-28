@@ -19,6 +19,7 @@ public class NPCDialogue : ScriptableObject
     public Sprite Icon;
     public bool contExtraInteraction;
     public InteractionExtraNPC InteractionExtra;
+    public string IdMision;
 
 
     [Header("Saludo")]

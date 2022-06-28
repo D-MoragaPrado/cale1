@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: Lanza
   Nombre: Lanza
-  Icono: {fileID: 21300000, guid: d0028980f55ffbf469556d3a66f92f0c, type: 3}
+  Icono: {fileID: 21300000, guid: bdc8bdb809923b9489fb93cc4fc42e35, type: 3}
   Descripcion: Lanza de madera y piedra utilizada para cazar.
   Tipo: 0
   IsConsumible: 0

@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7578cbb9d43aee145a0e9452d71120f4, type: 3}
   m_Name: 3
   m_EditorClassIdentifier: 
-  Nombre: Encuentra al trauco
+  Nombre: 3.Encuentra al trauco
   ID: trauco
   CantObjetivo: 1
-  Descripcion: En el bosque podras toparte al trauco, no es amigable  con hombres.
+  Descripcion: En el bosque podras toparte al trauco, no es amigable con hombres.
   RecompensaOro: 20
   RecompensaExp: 4
   RecompensaItem:

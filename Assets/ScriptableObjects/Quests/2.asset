@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7578cbb9d43aee145a0e9452d71120f4, type: 3}
   m_Name: 2
   m_EditorClassIdentifier: 
-  Nombre: Una Pista
+  Nombre: 2.Una Pista
   ID: pista
   CantObjetivo: 1
   Descripcion: "Una joven de la aldea dice que tiene informaci\xF3n encuentrala en
-    la casa x."
+    la casa al lado de las vacas."
   RecompensaOro: 10
   RecompensaExp: 2
   RecompensaItem:

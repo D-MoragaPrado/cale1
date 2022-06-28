@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 965c87e4f2a3592469f2216b2e046c89, type: 3}
+  m_Name: Trauco
+  m_EditorClassIdentifier: 
+  Id: tra
+  Nombre: Trauco
+  tipo: Leyenda
+  Icono: {fileID: 21300000, guid: 4c089742a9421014c8fb9ab08c429104, type: 3}
+  Descripcion: "Trata de un mitol\xF3gico hombrecito de 80 cent\xEDmetros de altura,
+    que cuentan tiene un rostro feo pero de mirada dulce, que resulta ser muy atractivo
+    para las mujeres que lo ven. No tiene pies y viste de traje, con un sombrero.
+    Trae un hacha de piedra en su mano derecha y cuando se cruza con alguna mujera
+    soltera en el bosque utiliza el hacha como bast\xF3n para as\xED no asustarla.Este
+    hombrecito solo persigue mujeres si van solas, jam\xE1s act\xFAa frente a testigos.
+    Cuando ve en el bosque alguna mujer que le gusta, baja r\xE1pido y le da tres
+    hachazos al \xE1rbol para asustarla. Cuando la muchacha se recupera del susto,
+    el Trauco llega a su lado y sopla suavemente su bast\xF3n ba\xF1ando con su aliento
+    a la mujer, quien sin poder resistir su encanto, cae en un profundo sue\xF1o
+    de amor sin oponer resistencia. Al despertar del hechizo, la joven regresa a
+    su casa completamente confundida, sin saber qu\xE9 pas\xF3. Al transcurrir los
+    meses, el cuerpo de la v\xEDctima comienza a experimentar cambios, hasta que
+    despu\xE9s de nueve meses nace el hijo, producto del embrujo del extra\xF1o hombrecito."
+  Tipo: 0

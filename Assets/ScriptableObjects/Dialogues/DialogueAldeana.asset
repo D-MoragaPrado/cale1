@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9f4050cc3b95254e905ea16c92d93bc, type: 3}
+  m_Name: DialogueAldeana
+  m_EditorClassIdentifier: 
+  Name: Aldeana
+  Icon: {fileID: 21300000, guid: e34d72f467d593642af698e5866d6aff, type: 3}
+  contExtraInteraction: 0
+  InteractionExtra: 0
+  IdMision: pista
+  Saludo: "Me recuerdas tanto a \xE9l...  *suspiro*"
+  Conversacion:
+  - Oracion: "\xBFeh?  \xBF A quien me refiero?"
+  - Oracion: "Catriel, un mestizo que lleg\xF3 hace un tiempo atr\xE1s.  Fui atacada
+      por el trauco y \xE9l fue en su b\xFAsqueda."
+  - Oracion: "\xBFA quien conoces? Al trauco? ,ese infeliz que me sedujo y embaraz\xF3
+      a pesar de mi amor por Catriel."
+  - Oracion: "\xBFCatriel tu hermano? ohh, estoy preocupada .Fue al bosque y no ha
+      regresado desde entonces."
+  Despedida: "Porfavor , encu\xE9ntralo"

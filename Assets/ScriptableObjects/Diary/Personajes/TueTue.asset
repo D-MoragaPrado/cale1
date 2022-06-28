@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 965c87e4f2a3592469f2216b2e046c89, type: 3}
+  m_Name: TueTue
+  m_EditorClassIdentifier: 
+  Id: brujos
+  Nombre: Tue Tue
+  tipo: Leyenda
+  Icono: {fileID: 21300000, guid: 470a93de3b149084c994b746f97d3b83, type: 3}
+  Descripcion: "Cabeza con alas en que se convert\xEDan los brujos para efectuar
+    sus peregrinaciones nocturnas. Para hacer sus salidas, los brujos hac\xEDan desprenderse
+    la cabeza del cuerpo y las orejas se transformaban en alas. El cuerpo, durante
+    la ausencia de la cabeza, deb\xEDa quedarse de espaldas. De otro modo no podr\xEDa
+    reun\xEDrsele a su vuelta. Muchos son los cuentos de las desgracias causadas
+    por haberse dado vuelta el cuerpo debido a la malicia de otras personas. Otra
+    versi\xF3n hace figurar al cho\xF1cho\xF1 como una de las tantas formas que adoptan
+    os brujos para realizar sus tareas. El grito de esta ave era considerado como
+    anuncio de muerte pr\xF3xima."
+  Tipo: 0
