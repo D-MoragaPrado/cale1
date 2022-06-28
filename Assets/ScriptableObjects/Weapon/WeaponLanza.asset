@@ -15,8 +15,8 @@ MonoBehaviour:
   WeaponIcon: {fileID: 21300000, guid: bdc8bdb809923b9489fb93cc4fc42e35, type: 3}
   IconSkill: {fileID: 0}
   Type: 1
-  Damage: 2
+  Damage: 5
   ManaRequired: 0
   ProjectilePrefab: {fileID: 0}
-  ChanceCritic: 0.5
-  ChanceBlock: 0.2
+  ChanceCritic: 0.1
+  ChanceBlock: 0.1
