@@ -12,7 +12,8 @@ public class UIManager : Singleton<UIManager>
     [SerializeField] private GameObject panelStats;
     [SerializeField] private GameObject panelInventory;
     [SerializeField] private GameObject panelDiary;
-    [SerializeField] private GameObject panelQuests;
+    [SerializeField] private GameObject panelMachiQuests;
+    [SerializeField] private GameObject panelPlayerQuests;
 
 
     [Header("Barra")]   //la barrita de color
@@ -117,6 +118,7 @@ public class UIManager : Singleton<UIManager>
         panelStats.SetActive(!panelStats.activeSelf);
         panelDiary.SetActive(false);
         panelInventory.SetActive(false);
+        panelPlayerQuests.SetActive(false);
     }
 
     public void OpenClosePanelInventory()
@@ -124,6 +126,7 @@ public class UIManager : Singleton<UIManager>
         panelInventory.SetActive(!panelInventory.activeSelf);
         panelDiary.SetActive(false);
         panelStats.SetActive(false);
+        panelPlayerQuests.SetActive(false);
     }
 
     public void OpenClosePanelDiary()
@@ -131,11 +134,21 @@ public class UIManager : Singleton<UIManager>
         panelDiary.SetActive(!panelDiary.activeSelf);
         panelStats.SetActive(false);
         panelInventory.SetActive(false);
+        panelPlayerQuests.SetActive(false);
     }
 
-    public void OpenClosePanelQuests()
+    public void OpenClosePanelMachiQuests()
     {
-        panelQuests.SetActive(!panelQuests.activeSelf);
+        panelMachiQuests.SetActive(!panelMachiQuests.activeSelf);
+        panelStats.SetActive(false);
+        panelInventory.SetActive(false);
+        panelDiary.SetActive(false);
+        panelPlayerQuests.SetActive(false);
+    }
+    //panelPlayerQuests.SetActive(false);
+    public void OpenClosePanelPlayerQuests()
+    {
+        panelPlayerQuests.SetActive(!panelPlayerQuests.activeSelf);
         panelStats.SetActive(false);
         panelInventory.SetActive(false);
         panelDiary.SetActive(false);
@@ -146,7 +159,7 @@ public class UIManager : Singleton<UIManager>
         switch (tipoInteraction)
         {
             case InteractionExtraNPC.Quests:
-                OpenClosePanelQuests();
+                OpenClosePanelMachiQuests();
                 break;
             case InteractionExtraNPC.Tienda:
                 break;

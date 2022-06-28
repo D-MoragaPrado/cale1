@@ -10,16 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7578cbb9d43aee145a0e9452d71120f4, type: 3}
-  m_Name: 1
+  m_Name: 2
   m_EditorClassIdentifier: 
-  Nombre: "Inicio B\xFAsqueda"
-  ID: pincoya
+  Nombre: Una Pista
+  ID: pista
   CantObjetivo: 1
-  Descripcion: Busca a la pincoya, suele estar en la orilla de la playa.
-  RecompensaOro: 5
+  Descripcion: "Una joven de la aldea dice que tiene informaci\xF3n encuentrala en
+    la casa x."
+  RecompensaOro: 10
   RecompensaExp: 2
   RecompensaItem:
-    item: {fileID: 11400000, guid: 869c116a09982b24dab23d5510711a5e, type: 2}
+    item: {fileID: 11400000, guid: 0269dc46b7761e145a1838bf13eeb7f2, type: 2}
     Cantidad: 1
-  cantActual: 1
-  QuestCompletedCheck: 1
+  cantActual: 0
+  QuestCompletedCheck: 0

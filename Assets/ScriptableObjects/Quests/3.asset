@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7578cbb9d43aee145a0e9452d71120f4, type: 3}
-  m_Name: 1
+  m_Name: 3
   m_EditorClassIdentifier: 
-  Nombre: "Inicio B\xFAsqueda"
-  ID: pincoya
+  Nombre: Encuentra al trauco
+  ID: trauco
   CantObjetivo: 1
-  Descripcion: Busca a la pincoya, suele estar en la orilla de la playa.
-  RecompensaOro: 5
-  RecompensaExp: 2
+  Descripcion: En el bosque podras toparte al trauco, no es amigable  con hombres.
+  RecompensaOro: 20
+  RecompensaExp: 4
   RecompensaItem:
-    item: {fileID: 11400000, guid: 869c116a09982b24dab23d5510711a5e, type: 2}
-    Cantidad: 1
-  cantActual: 1
-  QuestCompletedCheck: 1
+    item: {fileID: 11400000, guid: 12dfffb10a5303541898d7e9a74713c0, type: 2}
+    Cantidad: 5
+  cantActual: 0
+  QuestCompletedCheck: 0
