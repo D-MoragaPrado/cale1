@@ -18,7 +18,7 @@ MonoBehaviour:
   Descripcion: "Una joven de la aldea dice que tiene informaci\xF3n encuentrala en
     la casa al lado de las vacas."
   RecompensaOro: 10
-  RecompensaExp: 2
+  RecompensaExp: 4
   RecompensaItem:
     item: {fileID: 11400000, guid: 0269dc46b7761e145a1838bf13eeb7f2, type: 2}
     Cantidad: 1

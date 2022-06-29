@@ -25,12 +25,13 @@ public class Inventory : Singleton<Inventory>
     {
         if( itemForAdd == null) { return; }
         if(cant<= 0) { return; }
+        List<int> indexes = VerifyExistence(itemForAdd.Id);
         //verificar si ya existe uno
-        /*List<int> indexes = VerifyExistence(itemForAdd.Id); //ta fallando aqui
+        
 
-         if (itemForAdd.IsAcumulable)
+         if ( indexes.Count > 0)
          {
-             if (indexes.Count > 0)
+             if (itemForAdd.IsAcumulable)
              {
                  for (int i = 0; i < indexes.Count; i++)
                  {
@@ -46,7 +47,7 @@ public class Inventory : Singleton<Inventory>
                     }
                 }
             }
-        }*/
+        }
 
 
         if (cant > itemForAdd.AcumulacionMax)
@@ -55,7 +56,7 @@ public class Inventory : Singleton<Inventory>
             cant -= itemForAdd.AcumulacionMax;
             AddItem(itemForAdd, cant);
         }
-        else
+        else if(indexes.Count == 0)
         {
             AddItemInSlot(itemForAdd, cant);
         }
@@ -66,8 +67,7 @@ public class Inventory : Singleton<Inventory>
         List<int> indexsItems = new List<int>();
         for (int i = 0; i < itemsInventory.Length; i++)
         {
-            Debug.Log(itemsInventory[i].Id);
-            if (itemsInventory[i].Id != null)
+            if (itemsInventory[i] != null)
             {
                 if (itemsInventory[i].Id == itemId)
                 {
@@ -78,6 +78,7 @@ public class Inventory : Singleton<Inventory>
         }
         return indexsItems;
     }
+    
 
     private void AddItemInSlot(InventoryItem item , int cantidad)
     {

@@ -17,7 +17,7 @@ MonoBehaviour:
   CantObjetivo: 1
   Descripcion: .
   RecompensaOro: 1
-  RecompensaExp: 200
+  RecompensaExp: 16
   RecompensaItem:
     item: {fileID: 11400000, guid: 869c116a09982b24dab23d5510711a5e, type: 2}
     Cantidad: 2

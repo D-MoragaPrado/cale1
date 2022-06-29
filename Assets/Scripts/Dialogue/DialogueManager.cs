@@ -128,7 +128,7 @@ public class DialogueManager : Singleton<DialogueManager>
         for ( int i=0; i< letras.Length; i++)
         {
             npcConversationTMP.text += letras[i];
-            yield return new WaitForSeconds(0.03f);
+            yield return new WaitForSeconds(0.02f);
         }
 
         dialogueAnimated = true;

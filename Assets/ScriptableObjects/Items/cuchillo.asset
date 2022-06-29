@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: cuchillo
   Nombre: Cuchillo
-  Icono: {fileID: 0}
+  Icono: {fileID: 21300000, guid: f628c8ebda316b94788dec5b82c04a50, type: 3}
   Descripcion: "Cuchillo de piedra y madera usado para distintos prop\xF3sitos."
   Tipo: 4
   IsConsumible: 0

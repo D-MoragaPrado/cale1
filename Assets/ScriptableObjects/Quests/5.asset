@@ -20,7 +20,7 @@ MonoBehaviour:
     Y
     derrota a los brujos.'
   RecompensaOro: 1
-  RecompensaExp: 20
+  RecompensaExp: 4
   RecompensaItem:
     item: {fileID: 11400000, guid: 12dfffb10a5303541898d7e9a74713c0, type: 2}
     Cantidad: 2

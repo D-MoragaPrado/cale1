@@ -17,7 +17,7 @@ MonoBehaviour:
   CantObjetivo: 1
   Descripcion: Encuentralo
   RecompensaOro: 1
-  RecompensaExp: 2
+  RecompensaExp: 4
   RecompensaItem:
     item: {fileID: 11400000, guid: 17238beefe44f234ab4c363cd44bac3b, type: 2}
     Cantidad: 1
