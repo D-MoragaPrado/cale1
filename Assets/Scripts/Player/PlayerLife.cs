@@ -26,14 +26,14 @@ public class PlayerLife : BaseLife
 
 
 
-    private void Update()  // solo para probar
+   /* private void Update()  // solo para probar
     {
         if (Input.GetKeyDown(KeyCode.R))
         {
             RestoreHealth(10);
         }
         
-    }
+    }*/
 
 
 
@@ -59,6 +59,7 @@ public class PlayerLife : BaseLife
     {
         _boxCollider2D.enabled = false;
         PlayerDefeated = true;
+        UIManager.Instance.OpenClosePanelDead();
         EventPlayerDefeated?.Invoke(); // si el evento no es nulo , lo invocamos
         
     }
@@ -69,6 +70,7 @@ public class PlayerLife : BaseLife
         PlayerDefeated = false;
         Health = initialHealth;
         UpdateLifeBar(Health, initialHealth);
+        UIManager.Instance.OpenClosePanelDead();
 
     }
 

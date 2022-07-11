@@ -14,6 +14,8 @@ public class UIManager : Singleton<UIManager>
     [SerializeField] private GameObject panelDiary;
     [SerializeField] private GameObject panelMachiQuests;
     [SerializeField] private GameObject panelPlayerQuests;
+    [SerializeField] private GameObject panelDead;
+    [SerializeField] private GameObject panelMap;
 
 
     [Header("Barra")]   //la barrita de color
@@ -54,6 +56,11 @@ public class UIManager : Singleton<UIManager>
     {
         UpdateUIPlayer();
         UpdatePanelStats();
+
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            OpenClosePanelMap();
+        }
     }
 
     private void UpdateUIPlayer()
@@ -119,6 +126,7 @@ public class UIManager : Singleton<UIManager>
         panelDiary.SetActive(false);
         panelInventory.SetActive(false);
         panelPlayerQuests.SetActive(false);
+        panelMap.SetActive(false);
     }
 
     public void OpenClosePanelInventory()
@@ -127,6 +135,7 @@ public class UIManager : Singleton<UIManager>
         panelDiary.SetActive(false);
         panelStats.SetActive(false);
         panelPlayerQuests.SetActive(false);
+        panelMap.SetActive(false);
     }
 
     public void OpenClosePanelDiary()
@@ -135,6 +144,7 @@ public class UIManager : Singleton<UIManager>
         panelStats.SetActive(false);
         panelInventory.SetActive(false);
         panelPlayerQuests.SetActive(false);
+        panelMap.SetActive(false);
     }
 
     public void OpenClosePanelMachiQuests()
@@ -144,6 +154,7 @@ public class UIManager : Singleton<UIManager>
         panelInventory.SetActive(false);
         panelDiary.SetActive(false);
         panelPlayerQuests.SetActive(false);
+        panelMap.SetActive(false);
     }
     //panelPlayerQuests.SetActive(false);
     public void OpenClosePanelPlayerQuests()
@@ -152,6 +163,27 @@ public class UIManager : Singleton<UIManager>
         panelStats.SetActive(false);
         panelInventory.SetActive(false);
         panelDiary.SetActive(false);
+        panelMap.SetActive(false);
+    }
+
+    public void OpenClosePanelDead()
+    {
+        panelDead.SetActive(!panelDead.activeSelf);
+        panelStats.SetActive(false);
+        panelInventory.SetActive(false);
+        panelDiary.SetActive(false);
+        panelPlayerQuests.SetActive(false);
+        panelMap.SetActive(false);
+    }
+
+
+    public void OpenClosePanelMap()
+    {
+        panelMap.SetActive(!panelMap.activeSelf);
+        panelStats.SetActive(false);
+        panelInventory.SetActive(false);
+        panelDiary.SetActive(false);
+        panelPlayerQuests.SetActive(false);
     }
 
     public void OpenPanelInteraction(InteractionExtraNPC tipoInteraction)
